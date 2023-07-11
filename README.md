@@ -25,8 +25,8 @@ pip install markupsafe==2.1.1\
 python -m spacy download en_core_web_sm
 
 ## Reference
-nltk: https://github.com/nltk/nltk/\
-spacy: https://github.com/explosion/spaCy/\
-LAC: https://github.com/baidu/lac/\
-stanza: https://github.com/stanfordnlp/stanza/\
+nltk: https://github.com/nltk/nltk/ \
+spacy: https://github.com/explosion/spaCy/ \
+LAC: https://github.com/baidu/lac/ \
+stanza: https://github.com/stanfordnlp/stanza/ \
 hanlp: https://github.com/hankcs/HanLP
