@@ -8,7 +8,7 @@ For English, nltk, spacy, and stanza are utilized. For Chinese, hanlp, lac, and 
 The final output is determined by a voting mechanism among the Named Entity Recogniztion packages.\
 The 'rule' parameter specifies the minimum number of agreements required for a phrase to be classified as a person or organization.\
 By default, the program starts with a flexible selection approach, trying rule = 3 first, then rule = 2, and finally rule = 1.\
-The program returns four sets: English person names, Chinese person names, English organization names, and Chinese organization names.\
+The program returns four sets: English person names, Chinese person names, English organization names, and Chinese organization names.
 
 ## API
 First argument: The input text to perform Named Entity Recogniztion.\
