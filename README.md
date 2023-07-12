@@ -14,6 +14,24 @@ The program returns four sets: English person names, Chinese person names, Engli
 First argument: The input text to perform Named Entity Recogniztion.\
 Second argument (optional): The minimum number of agreements required for a phrase to be classified as a person or organization.
 
+## Example
+English Text:
+I am writing this letter to confirm that Edward Smith has been employed with Dexter Insurance Company since April , and is a reliable and trustworthy insurance agent for this company.
+
+Results of each NER packages:\
+English People Name:\
+{'Dexter Insurance Company', 'Edward Smith'}\
+{'Edward Smith'}\
+{'Edward Smith'} \
+English Company Name: \
+None \
+{'Dexter Insurance Company'}\
+{'Dexter Insurance Company'}
+
+Ensembled result:\
+People: {'Edward Smith'}\
+Company: {'Dexter Insurance Company'}
+
 ## Installation
 pip install nltk==3.5\
 pip install spacy==1.0.4\
