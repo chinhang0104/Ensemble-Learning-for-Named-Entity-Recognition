@@ -2,8 +2,8 @@ from LAC import LAC
 
 from Model import Model
 
-class Spacy(Model):
-    def __init__(self, name = "spacy"):
+class Lac(Model):
+    def __init__(self, name = "lac"):
         super().__init__(name)
 
     ## @brief 
