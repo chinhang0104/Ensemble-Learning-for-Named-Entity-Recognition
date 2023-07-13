@@ -2,8 +2,8 @@ import stanza
 
 from Model import Model
 
-class Spacy(Model):
-    def __init__(self, name = "spacy"):
+class Stanza(Model):
+    def __init__(self, name = "stanza"):
         super().__init__(name)
 
     ## @brief 
