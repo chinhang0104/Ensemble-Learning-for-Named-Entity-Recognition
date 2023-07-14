@@ -34,12 +34,12 @@ class Scoring:
             _models = self.models        
         # Summing up score for each word
         _scoring_matrix = {}
-        for model_result in recognized_results:
-            for word in model_result:
+        for i in range(len(recognized_results)):
+            for word in recognized_results[i]:
                 if word in _scoring_matrix:
-                    _scoring_matrix[word] += model.weight
+                    _scoring_matrix[word] += _models[i].weight
                 else:
-                    _scoring_matrix[word] = model.weight
+                    _scoring_matrix[word] = _models[i].weight
         self.scoring_matrix = _scoring_matrix
         return _scoring_matrix
     
