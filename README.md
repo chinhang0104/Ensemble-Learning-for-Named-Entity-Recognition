@@ -4,8 +4,8 @@ Provides a platform for ensemble learning in the field of Named Entity Recogniti
 ## Features
 Unified API: Provide classes that unify the API of various NER packages, simplifying the process of integrating different models into an ensemble. \
 Easy features developement: Easily add, remove, and modify model features. For example, you can augment add location recognition capabilities by creating get_location function in Model class. \
-Model Management: Flexible to add, remove, and modify NER models within the ensemble. This enables you to experiment with different models. \
-Customizable Ensembling Decision Rule: Simple way to modify the decision rule for ensembling. This allows you to fine-tune the behavior of the ensemble and optimize performance based on your requirements.
+Model Management: Flexible to add, remove, and modify NER models within the ensemble. This can be archieved by creating a subclass of Model. \
+Customizable Ensembling Decision Rule: Simple way to modify the decision rule for ensembling. Some rules are included in 
 
 ## Benchmark 
 Work in progress.
