@@ -1,4 +1,4 @@
-class Model:    
+class BaseModel:    
     # A template of NLP model.
 
     ## @brief 

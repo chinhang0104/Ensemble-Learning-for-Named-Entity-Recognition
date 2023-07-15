@@ -1,8 +1,8 @@
 import stanza
 
-from Model import Model
+from BaseModel import BaseModel
 
-class Stanza(Model):
+class Stanza(BaseModel):
     def __init__(self, name = "stanza"):
         super().__init__(name)
 

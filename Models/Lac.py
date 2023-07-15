@@ -1,8 +1,8 @@
 from LAC import LAC
 
-from Model import Model
+from BaseModel import BaseModel
 
-class Lac(Model):
+class Lac(BaseModel):
     def __init__(self, name = "lac"):
         super().__init__(name)
 

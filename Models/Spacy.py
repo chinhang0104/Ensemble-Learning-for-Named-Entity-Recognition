@@ -2,9 +2,9 @@ import spacy
 from spacy import displacy
 import en_core_web_sm
 
-from Model import Model
+from BaseModel import BaseModel
 
-class Spacy(Model):
+class Spacy(BaseModel):
     def __init__(self, name = "spacy"):
         super().__init__(name)
 

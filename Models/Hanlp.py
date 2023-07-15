@@ -1,8 +1,8 @@
 import hanlp
 
-from Model import Model
+from BaseModel import BaseModel
 
-class Hanlp(Model):
+class Hanlp(BaseModel):
     def __init__(self, name = "hanlp"):
         super().__init__(name)
 
@@ -12,6 +12,7 @@ class Hanlp(Model):
         if _input is None:
             _input = self.input
         HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_SMALL_ZH, tasks=['ner/ontonotes'])
+        #HanLP = hanlp.load(hanlp.pretrained.mtl.UD_ONTONOTES_TOK_POS_LEM_FEA_NER_SRL_DEP_SDP_CON_MMINILMV2L12, tasks=['ner/ontonotes'])
         self.recognized_result = HanLP(_input)
 
     ## @brief 

@@ -3,11 +3,11 @@ from nltk.tokenize import word_tokenize
 from nltk.tag import pos_tag
 from nltk import ne_chunk
 
-from Model import Model
+from BaseModel import BaseModel
 
-class Nltk(Model):
-    def __init__(self, name = "nltk"):
-        super().__init__(name)
+class Nltk(BaseModel):    
+    def __init__(self):
+        super().__init__(name = "nltk")
 
     def init(self) -> None:
         """
