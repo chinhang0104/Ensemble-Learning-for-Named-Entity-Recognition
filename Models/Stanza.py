@@ -5,14 +5,14 @@ from BaseModel import BaseModel
 class Stanza(BaseModel):
     def __init__(self, name = "stanza"):
         super().__init__(name)
+        self.model = stanza.Pipeline(lang='en', processors='tokenize,ner')
 
     ## @brief 
     # Setting up recognize
     def recognize(self, _input = None):
         if _input is None:
-            _input = self.input
-        nlp = stanza.Pipeline(lang='en', processors='tokenize,ner')
-        self.recognized_result = nlp(_input)
+            _input = self.input        
+        self.recognized_result = self.model(_input)
 
     ## @brief 
     # Get human names
