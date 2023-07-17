@@ -1,0 +1,8 @@
+**/.ipynb_checkpoints/
+*.ipynb
+/result.txt
+**/__pycache__/
+*.txt
+**/html/
+**/latex/
+*.json
