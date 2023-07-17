@@ -5,11 +5,17 @@ class VotingClassifier:
     # @param _models list of model instances
     def __init__(self, _models: Optional[list] = None):
         self.models = _models
-        self.summed_weight = 0
         self.Voting_matrix = None
+        if self.models is not None:
+            sum_of_weight = 0
+            for _model in self.models:
+                sum_of_weight += _model.weight
+            self.summed_weight = sum_of_weight
+        else:
+            self.summed_weight = 0
     
     def __str__(self) -> str:
-        return f"Loaded models: {self.models}"
+        return f"Loaded models: {self.models}. Total weight: {self.summed_weight}"
     
     ## @brief
     # Sum models' weight
@@ -36,11 +42,12 @@ class VotingClassifier:
         # Summing up score for each word
         _Voting_matrix = {}
         for i in range(len(recognized_results)):
-            for word in recognized_results[i]:
-                if word in _Voting_matrix:
-                    _Voting_matrix[word] += _models[i].weight
-                else:
-                    _Voting_matrix[word] = _models[i].weight
+            if len(recognized_results[i]) > 0:                
+                for word in recognized_results[i]:
+                    if word in _Voting_matrix:
+                        _Voting_matrix[word] += _models[i].weight
+                    else:
+                        _Voting_matrix[word] = _models[i].weight
         self.Voting_matrix = _Voting_matrix
         return _Voting_matrix
     
