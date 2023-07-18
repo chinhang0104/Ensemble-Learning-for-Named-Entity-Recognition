@@ -4,7 +4,7 @@ This repository includes the [integrated NER packages](#integrated-ner-packages)
 
 ## Features
 Unified API: Provide classes that unify the API of various NER packages, simplifying the process of integrating different models into an ensemble. \
-Easy features development: Easily add, remove, and modify model features. For example, you can augment add location recognition capabilities by creating get_location function in [Model](#models) class. \
+Easy features development: Easily add, remove, and modify model features. For example, you can augment add location recognition capabilities by creating get_location function in [Model](Models) class. \
 Model Management: Flexible to add, remove, and modify NER models within the ensemble. This can be achieved by creating a subclass of [Model](Models). \
 Customizable Ensembling Decision Rule: Simple way to modify the decision rule for ensembling. Common rules are ready to use.
 
