@@ -67,8 +67,7 @@ Full documents refer to release.
 Support doxygen.
 
 ## To do
-Support loading multiple datasets - in progress. \
-C++ version. \
+C++ version - in progress. \
 Show recognized result's index in string. \
 CICD
 
