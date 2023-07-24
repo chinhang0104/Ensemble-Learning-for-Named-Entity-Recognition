@@ -2,6 +2,7 @@
 
 #include "BaseModel.h"
 #include "DemoModel.h"
+#include "VotingClassifier.h"
 int main(){
 	//BaseModel model = BaseModel("Hello");
 	//model.setName("Demo");
@@ -16,5 +17,10 @@ int main(){
 	for (std::set<std::string>::iterator it = companies.begin(); it != companies.end(); it++) {
 		std::cout << *it << std::endl;
 	}
-
+	std::vector<BaseModel*> _models = {new BaseModel("BaseClass"), new DemoModel("SubClass")};
+	VotingClassifier v = VotingClassifier(_models);
+	std::cout << v.about() << std::endl;
+	if (0.0) {
+		std::cout << "WRONG";
+	}
 }
