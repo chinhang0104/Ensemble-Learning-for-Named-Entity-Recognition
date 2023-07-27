@@ -1,22 +1,22 @@
-"""! @brief Named Entity Recogniztion"""
+"""! @brief Ensemble Learning for Named Entity Recognition"""
 
 ##
-# @mainpage Named Entity Recogniztion using Ensemble Learning
-# @brief Utilize multiple Named Entity Recogniztion packages to detect human name and organization and 
-# determine the final output by conducting a voting process among the NER packages.
+# @mainpage Ensemble Learning for Named Entity Recognition
+# @brief Provides a platform for ensemble learning in the field of Named Entity Recognition.
 #
-# @section Methodology
-# This program extracts all person and organization names from the given input 'text' (String).\n
-# It utilizes three open-source Named Entity Recogniztion packages for each of two supported languages - English and Chinese.\n
-# For English, nltk, spacy, and stanza are utilized. For Chinese, hanlp, lac, and stanza are utilized.
-# The final output is determined by a voting mechanism among the Named Entity Recogniztion packages.\n
-# The 'rule' parameter specifies the minimum number of agreements required for a phrase to be classified as a person or organization.\n
-# By default, the program starts with a flexible selection approach, trying rule = 3 first, then rule = 2, and finally rule = 1.\n
-# The program returns four sets: English person names, Chinese person names, English organization names, and Chinese organization names.\n# 
+# @section Features
+# Unified API: Provide classes that unify the API of various NER packages, simplifying the process of integrating different models into an ensemble. \n
+# Easy features developement: Easily add, remove, and modify model features. For example, you can augment add location recognition capabilities by creating get_location function in Model class. \n
+# Model Management: Flexible to add, remove, and modify NER models within the ensemble. This can be archieved by creating a subclass of Model. \n
+# Customizable Ensembling Decision Rule: Simple way to modify the decision rule for ensembling. Common rules are ready to use.
 #
-# @section API
-# First argument: Text files to perform Named Entity Recogniztion.\n
-# Return: 
+# @section Demos
+# Class demo: \n
+# Example of using APIs and construct classes. \n
+# \n
+# Commond line program demo: \n
+# Example of using commond line program to read text files and put recognized entities into a json file. \n
+# Argument: The path of text files to perform Named Entity Recogniztion.
 #
 # @section Installation
 # pip install nltk==3.5\n
