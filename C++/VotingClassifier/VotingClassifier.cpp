@@ -2,11 +2,7 @@
 VotingClassifier::VotingClassifier(std::vector<BaseModel*> _models){
 	if (!_models.empty()) {
 		models = _models;
-		float _sumOfWeight = 0.0;
-		for (int i = 0; i < _models.size(); ++i) {
-			_sumOfWeight += _models[i]->getWeight();
-		}
-		summedWeight = _sumOfWeight;
+		sumWeight();
 	}
 }
 std::string VotingClassifier::VotingClassifier::about() {
@@ -22,6 +18,9 @@ float VotingClassifier::sumWeight(std::vector<BaseModel*> _models) {
 	if (_models.empty()) {
 		_models = models;
 	}
+	else {
+		models = _models;
+	}
 	float sumOfWeight = 0.0;
 	for (int i = 0; i < _models.size(); ++i) {
 		sumOfWeight += _models[i]->getWeight();
@@ -29,14 +28,17 @@ float VotingClassifier::sumWeight(std::vector<BaseModel*> _models) {
 	summedWeight = sumOfWeight;
 	return summedWeight;
 }
-std::map<std::string, float> VotingClassifier::buildVotingMatrix(std::vector<std::set<std::string>> recognizedResults, std::vector<BaseModel*> _models) {
+std::map<std::string, float> VotingClassifier::buildVotingMatrix(std::vector<std::set<std::string>>* recognizedResults, std::vector<BaseModel*> _models) {
 	if (_models.empty()) {
 		_models = models;
 	}
+	else {
+		models = _models;
+	}
 	std::map<std::string, float> _votingMatrix = {};
-	for (int i = 0; i < recognizedResults.size(); ++i) {
+	for (int i = 0; i < recognizedResults->size(); ++i) {
 		if (!recognizedResults[i].empty()) {
-			for (std::set<std::string>::iterator it = recognizedResults[i].begin(); it != recognizedResults[i].end(); it++) {
+			for (std::set<std::string>::iterator it = (*recognizedResults)[i].begin(); it != (*recognizedResults)[i].end(); it++) {
 				if (_votingMatrix.find(*it) != _votingMatrix.end()) {
 					_votingMatrix[*it] += _models[i]->getWeight();
 				}
@@ -65,13 +67,36 @@ std::vector<const std::string*> VotingClassifier::weightedAverageProbabilities(s
 	if (!_votingMatrix) {
 		_votingMatrix = &votingMatrix;
 	}
+	findMaxScore();
 	std::vector<const std::string*> results = {};
-	float maxScore = 0.0;
-	for (std::map<std::string, float>::iterator it = _votingMatrix->begin(); it != _votingMatrix->end(); it++) {
-		maxScore = std::max(maxScore, it->second);
-	}
 	for (std::map<std::string, float>::iterator it = _votingMatrix->begin(); it != _votingMatrix->end(); it++) {
 		if (it->second == maxScore) {
+			results.push_back(&(it->first));
+		}
+	}
+	return results;
+}
+std::vector<const std::string*> VotingClassifier::percentageWithinHighestScore(float percentage, std::map<std::string, float>* _votingMatrix) {
+	if (!_votingMatrix) {
+		_votingMatrix = &votingMatrix;
+	}
+	float cutoffScore = findMaxScore()*percentage;
+	std::vector<const std::string*> results = {};
+	for (std::map<std::string, float>::iterator it = _votingMatrix->begin(); it != _votingMatrix->end(); it++) {
+		if (it->second >= cutoffScore) {
+			results.push_back(&(it->first));
+		}
+	}
+	return results;
+}
+std::vector<const std::string*> VotingClassifier::minimumWeightedScore(float percentage, std::map<std::string, float>* _votingMatrix) {
+	if (!_votingMatrix) {
+		_votingMatrix = &votingMatrix;
+	}
+	float cutoffScore = summedWeight * percentage;
+	std::vector<const std::string*> results = {};
+	for (std::map<std::string, float>::iterator it = _votingMatrix->begin(); it != _votingMatrix->end(); it++) {
+		if (it->second >= cutoffScore) {
 			results.push_back(&(it->first));
 		}
 	}
