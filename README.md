@@ -66,11 +66,6 @@ The benchmark results demonstrate that the ensemble method performs remarkably b
 Full documents refer to release. 
 Support doxygen.
 
-## To do
-C++ version - in progress. \
-Show recognized result's index in string. \
-CICD
-
 ## Reference
 nltk: https://github.com/nltk/nltk/ \
 spacy: https://github.com/explosion/spaCy/ \
